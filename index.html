@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>camara</title>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8">
+
+	document.addEventListener("deviceready", onDeviceReady, false);
+   
+function onDeviceReady (){
+		alert('dispositivo listo');
+	}
+	
+function capturafoto(){
+    navigator.camera.getPicture(exito,fallo, {quality:50 destinationType:Camera.DestinationType.DATA_URL});
+    }
+    
+function fallo(message){
+    	alert('fallo :'+ message);
+    }
+function exito(imageData){
+		var imagen=documet.getElementById('imagen');
+		imagen.style.display = 'block';
+		imagen.scr="data:image/jpeg;base64,"+ imageData;
+	}
+
+</script>
+</head>
+
+	
+<body>
+<button onclick="capturafoto();">click</button><br>
+<img style="display:none;width:100px;height:100px;" id="imagen" src="" />
+</body>
+</html>
+
+
+
+
